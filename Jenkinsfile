@@ -7,14 +7,14 @@ pipeline{
   stages{
     stage('checkout git'){
       steps{
-          git branch: 'main', url: 'https://github.com/shashikrpet/Insurance.git'
+          git branch: 'main', url: 'https://github.com/BasavaShettar/Insure-me.git'
       }
     }
 
     stage ('maveen package')
     {
       steps{
-      sh 'mvn clean package'
+      sh 'mvn clean install'
         }
     }
 
