@@ -1,3 +1,2 @@
 [server]
-#172.31.88.234 ansible_user=ubuntu
- ubuntu@ec2-54-227-218-173.compute-1.amazonaws.com
+ec2-18-209-176-47.compute-1.amazonaws.com ansible_user=ubuntu
