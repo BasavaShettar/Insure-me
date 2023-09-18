@@ -39,6 +39,13 @@ stage('Docker image push') {
       
             }
         }
+    stage('Deploy on server'){
+  steps{
+ansiblePlaybook credentialsId: 'Ansible_Server', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'host.inv', playbook: 'ansible-playbook.yml'
+  }
+
+  
+}
 
     }
 }
