@@ -31,15 +31,7 @@ publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, 
             }
           }
     
-stage('Docker image push') {
-    steps {
-    withCredentials([string(credentialsId: 'basavarajshettar', variable: 'docker')]) {
-			sh ' docker login -u basavarajshettar -p ${docker}'
-}
-      sh 'docker push basavarajshettar/insure-app:1.0'
-      
-            }
-        }
+
    
   
     }
