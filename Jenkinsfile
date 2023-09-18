@@ -39,10 +39,7 @@ publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, 
       sh 'docker push basavarajshettar/insure-app:1.0'
       
             }
-        }
-
-
-   
+     
   
     }
 }
