@@ -1,2 +1,2 @@
 [server]
-ubuntu@ip-172-31-45-114
+172-31-45-114 ansible_user=ubuntu
