@@ -30,7 +30,17 @@ publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, 
                  sh 'docker build -t basavarajshettar/insure-app:1.0 .'
             }
           }
-    
+    stage('Docker image push') {
+    steps {
+   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+    sh ' docker login -u basavarajshettar -p ${dockerhubpwd}'
+}
+}
+      sh 'docker push basavarajshettar/insure-app:1.0'
+      
+            }
+        }
+
 
    
   
