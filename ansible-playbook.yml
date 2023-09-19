@@ -3,8 +3,10 @@
   become: true
   tasks:
   - name: Install Docker
-    become: yes
-    apt: name=docker-ce state=present
+     apt:
+        name: docker-io
+        state: present
+        become: yes
     
   - name: Start Docker Service
     command: sudo systemctl start docker
