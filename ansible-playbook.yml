@@ -4,7 +4,7 @@
   tasks:
   - name: Install Docker
     become: yes
-    apt: name=docker-ce state=latest
+    apt: name=docker-ce state=present
     
   - name: Start Docker Service
     command: sudo systemctl start docker
