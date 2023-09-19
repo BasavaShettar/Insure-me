@@ -5,32 +5,32 @@ pipeline{
   }
   
   stages{
-    stage('checkout git'){
+    stage('GIT CHECKOUT'){
       steps{
           git branch: 'main', url: 'https://github.com/BasavaShettar/Insure-me.git'
       }
     }
 
-    stage ('maveen package')
+    stage ('MAVEN PACKAGE')
     {
       steps{
       sh 'mvn clean install'
         }
     }
 
-    stage ('HTML report')
+    stage ('HTML REPORT')
     {
       steps{
 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insurance/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
       }
     }
-        stage('docker file and image')
+        stage('DOCKER BUILD')
           {
             steps{
                  sh 'docker build -t basavarajshettar/insure-app:1.0 .'
             }
           }
-stage('Docker image push') {
+stage('DOCKER PUSH') {
     steps {
     withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
           sh ' docker login -u basavarajshettar -p ${dockerhubpwd}'
@@ -39,7 +39,7 @@ stage('Docker image push') {
       
             }
         }
-    stage('Deploy on server'){
+    stage('DEPLOY ON SERVER'){
   steps{
 ansiblePlaybook credentialsId: 'Ansible_Server', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'Dev.inv', playbook: 'ansible-playbook.yml'
   }
