@@ -38,7 +38,7 @@ stage('DOCKER PUSH') {
       sh 'docker push basavarajshettar/insure-app:1.0'   
             }
         }
-    stage('DEPLOY ON SERVER'){
+    stage('DEPLOY ON SERVERR'){
   steps{
 ansiblePlaybook credentialsId: 'Ansible_Server', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'Dev.inv', playbook: 'ansible-playbook.yml'
   } 
