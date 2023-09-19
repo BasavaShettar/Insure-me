@@ -35,20 +35,13 @@ stage('DOCKER PUSH') {
     withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
           sh ' docker login -u basavarajshettar -p ${dockerhubpwd}'
 }
-      sh 'docker push basavarajshettar/insure-app:1.0'
-      
+      sh 'docker push basavarajshettar/insure-app:1.0'   
             }
         }
     stage('DEPLOY ON SERVER'){
   steps{
 ansiblePlaybook credentialsId: 'Ansible_Server', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'Dev.inv', playbook: 'ansible-playbook.yml'
-  }
-
-  
+  } 
 }
-
     }
 }
-
-
-    
