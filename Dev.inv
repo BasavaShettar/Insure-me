@@ -1,2 +1,2 @@
 [Dev]
-ec2-18-209-176-48.compute-1.amazonaws.com ansible_user=ubuntu
+ubuntu@ec2-54-227-153-244.compute-1.amazonaws.com
